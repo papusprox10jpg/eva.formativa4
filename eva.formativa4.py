@@ -61,5 +61,5 @@ while menu:
         else:
           cont += 1
       if cont >= 1:
-        print("\n Error, Su telefono debe tener un 9 al principio")
+        print("\n Error, Su celular debe tener un 9 al principio")
         cont = 0
