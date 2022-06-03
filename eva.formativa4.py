@@ -10,8 +10,8 @@ validacion = True
 menu = True 
 cont = 0 
 while menu:
-  print("Vuelos-Duoc")
-  print("bienvenido!!!")
+  print("\nVuelos-Duoc")
+  print("\nBienvenido!")
   print("\n1. Ver asientos disponibles \n2. Comprar asientos \n3. Anular vuelo \n4. modificar datos de pasajero \n5. Salir \n ")
   while validacion:
     try:
