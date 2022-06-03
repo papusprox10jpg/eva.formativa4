@@ -2,7 +2,7 @@ def disponibilidad (sala):
   c=0
   for fila in sala:
     for asiento in fila :
-      if asiento == "O":
+      if asiento == "x":
         c+=1 
   return  c
 
