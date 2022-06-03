@@ -21,7 +21,7 @@ while menu:
       else:
         print("ingrese un numero entre el 1 y 5")
     except ValueError:
-      print("ingrese numeros")
+      print("ingrese numeros!")
   if op == 1:
     print("\n1. Asientos normales \n2. Asientos VIP\n")
     matriz = [["|"," 1"," 2"," 3","     "," 4"," 5"," 6","|"],["|"," 7"," 8"," 9","     ","10","11","12","|"],
