@@ -63,3 +63,4 @@ while menu:
       if cont >= 1:
         print("\n Error, Su telefono debe tener un 9 al principio")
         cont = 0
+        print("a")
