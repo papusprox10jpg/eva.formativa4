@@ -1,4 +1,4 @@
-def disponibilidad (sala):
+def dispo (sala):
   c=0
   for fila in sala:
     for asiento in fila :
