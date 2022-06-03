@@ -1,4 +1,4 @@
-def dispo (sala): #Recordar mover esta funcion a otro archivo
+def dispo (sala): #Recordar mover esta funcion a otro archivo!
   c=0
   for fila in sala:
     for asiento in fila :
