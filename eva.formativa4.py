@@ -32,7 +32,7 @@ while menu:
           print(matriz[n][i],end=" ")
       print()
     print("\nasientos ocupados: ")
-    print(disponible(matriz))
+    print(disponibilidad(matriz))
 
   if op == 2:
     nom = str("\ningrese su nombre: \t")
