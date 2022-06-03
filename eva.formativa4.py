@@ -15,7 +15,7 @@ while menu:
   print("\n1. Ver asientos disponibles \n2. Comprar asientos \n3. Anular vuelo \n4. modificar datos de pasajero \n5. Salir \n ")
   while validacion:
     try:
-      op = int(input("\nIngrese la opcion que desee:\t"))
+      op = int(input("\nIngrese la opcion que desee: \t"))
       if op == 1 or op == 2 or op == 3 or op == 4 or op == 5:
         break
       else:
