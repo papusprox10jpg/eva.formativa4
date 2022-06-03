@@ -10,8 +10,8 @@ validacion = True
 menu = True 
 cont = 0 
 while menu:
-  print("Vuelos-Duoc")
-  print("bienvenido!!!")
+  print("\nVuelos-Duoc")
+  print("\nBienvenido!")
   print("\n1. Ver asientos disponibles \n2. Comprar asientos \n3. Anular vuelo \n4. modificar datos de pasajero \n5. Salir \n ")
   while validacion:
     try:
@@ -21,7 +21,7 @@ while menu:
       else:
         print("ingrese un numero entre el 1 y 5")
     except ValueError:
-      print("ingrese numeros")
+      print("ingrese numeros!")
   if op == 1:
     print("\n1. Asientos normales \n2. Asientos VIP\n")
     matriz = [["|"," 1"," 2"," 3","     "," 4"," 5"," 6","|"],["|"," 7"," 8"," 9","     ","10","11","12","|"],
