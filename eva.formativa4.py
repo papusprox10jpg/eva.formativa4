@@ -65,9 +65,9 @@ while menu:
         cont = 0
   
   elif op == 3:
-    print("op3") #momentaneo
+    print("op3") #momentaneo!
   elif op == 4:
-    print("op4") #momentaneo
+    print("op4") #momentaneo!
   elif op == 5:
     print("\nSaliendo del programa...")
     break
