@@ -1,4 +1,4 @@
-def dispo (sala):
+def dispo (sala): #Recordar mover esta funcion a otro archivo!
   c=0
   for fila in sala:
     for asiento in fila :
@@ -63,3 +63,10 @@ while menu:
       if cont >= 1:
         print("\n Error, Su celular debe tener un 9 al principio")
         cont = 0
+  elif op == 3:
+    print("op3") #momentaneo!
+  elif op == 4:
+    print("op4") #momentaneo!
+  elif op == 5:
+    print("\nSaliendo del programa...")
+    break
