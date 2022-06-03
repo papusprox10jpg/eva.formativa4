@@ -5,7 +5,6 @@ def dispo (sala): #Recordar mover esta funcion a otro archivo
       if asiento == "X":
         c+=1 
   return  c
-
 validacion = True
 menu = True 
 cont = 0
