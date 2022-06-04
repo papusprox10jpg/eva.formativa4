@@ -1,4 +1,4 @@
-from fun_disponibilidad import disp_asiento
+import funciones_avion as fun
 validacion = True
 menu = True 
 cont = 0
