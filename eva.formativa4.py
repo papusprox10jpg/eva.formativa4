@@ -1,3 +1,48 @@
+def compra(compra_asiento):
+  if compra_asiento > 0 and compra_asiento <= 30 :
+    normal = 0
+    normal += 78900
+    if banco == "si":
+      descuento = normal * 0.15
+      normal = normal - descuento
+      print("\n")
+      print("*"*40)
+      print("Boleta:")
+      print("* "," asientos normales\t","$78.900" )
+      print("* ","descuento 15%\t","$11.835")
+      print("*"*40)
+      print("                           su total es:\t", round(normal))
+
+    else:
+      print("\n")
+      print("*"*40)
+      print("Boleta:")
+      print("* "," asientos normales\t","$78.900" )
+      print("* ","descuento 15%\t","$0")
+      print("*"*40)
+      print("                           su total es:\t", round(normal))
+
+  if compra_asiento >= 31 and compra_asiento <= 42:
+    vip = 0
+    vip += 240000
+    if banco == "si":
+      descuento = vip * 0.15
+      vip = vip - descuento
+      print("\n")
+      print("*"*40)
+      print("Boleta:")
+      print("* "," asientos normales\t","$240.000" )
+      print("* ","descuento 15%\t","$36.000")
+      print("*"*40)
+      print("                           su total es:\t", round(vip))
+    else:
+      print("\n")
+      print("*"*40)
+      print("Boleta:")
+      print("* "," asientos normales\t","$240.000" )
+      print("* ","descuento 15%\t","$0")
+      print("*"*40)
+      print("                           su total es:\t", round(vip))
 import funciones_avion as fun
 validacion = True
 menu = True 
@@ -35,34 +80,55 @@ while menu:
         else:
           print("\nError: RUT inválido, ingrese correctamente ")
       except ValueError:
-        print("\nError: ingrese su RUT sin puntos ni digito verificador")   
+        print("\nError, ingrese su rut sin puntos ni digito verificador")
     while validacion:
       try:
-        telefono = int(input("\nIngrese su número de telefono: (comenzar con el numero 9)\t"))
-        if len(str(telefono)) == 9:
-          for i in str(telefono):
-            if "9" in i:
-              break
-            else:
-              cont += 1
-          if cont >= 1:
-            print("\nError: su número de teléfono debe iniciar con un 9.")
-            cont = 0
-          else:
-            break
-        else:
-          print("\nError: su número de teléfono debe tener 9 digitos")
+        telefono = (input("\nIngrese su numero de telefono: (comenzar con el numero 9)\t"))
+        if len(telefono) == 9:
+          break
+        else :
+          print("\nError, su numero debe tener 9 digitos")
       except ValueError:
-        print("\nError: ingrese número de teléfono como numeros")
-    fun.ir_menu()
+        print("\nError, ingrese su telefono como numero ")
+        
+      for i in telefono:
+        if "9" in i:
+          break
+        else:
+          cont += 1
+      if cont >= 1:
+        print("\nError, Su Telefono debe tener un 9 al principio")
+        cont = 0
+    while validacion:
+      banco = input("\nPertenece al bancoDuoc: \t")
+      banco.lower()
+      if banco == "si" or banco =="no":
+        break
+      else:
+        print("\nError, Ingrese como opcion (si/no): \t")
+    while validacion:
+      try:
+        compra_asiento= int(input("\nIngrese el asiento deseado: \t"))
+        if compra_asiento > 0 and compra_asiento < 43:
+          break
+        else:
+          print("Error, Ingrese un numero entre el 1 y el 42")
+      except ValueError:
+        print("Error, Ingrese numeros")
+    compra(compra_asiento)
   elif op == 3:
-    fun.clear()
-    print("op3") #momentaneo!
-    fun.ir_menu()
+    if rut != None:
+      print("op3") #momentaneo , programmar aqui!
+    else:
+      print("\nError, ingrese a la opcion 2 para registrarse...")
+    print("\nVolviendo al menu principal...")
+    
   elif op == 4:
-    fun.clear()
-    print("op4") #momentaneo!
-    fun.ir_menu()
+    if rut != None:
+      print("op4") #momentaneo , programar aqui!
+    else:
+      print("\nError, ingrese a la opcion 2 para registrarse...")
+    print("\nVolviendo al menu principal...")
   elif op == 5:
     print("\nSaliendo del programa...")
     break
