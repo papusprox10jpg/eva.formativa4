@@ -27,7 +27,7 @@ while menu:
           print(avion[i][j],end=" ")
       print()
     print("\nAsientos ocupados: ")
-    print(disp_asiento(avion))
+    print(fun.disp_asiento(avion))
     print("\n1. Asientos normales: del 1 al 30 \n2. Asientos VIP: del 31 al 42\n")
 
   elif op == 2:
