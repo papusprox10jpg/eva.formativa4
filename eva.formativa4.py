@@ -1,6 +1,7 @@
 import funciones_avion as fun
 validacion = True
-menu = True 
+menu = True
+rut = None
 cont = 0
 avion = [["|"," 1"," 2"," 3","     "," 4"," 5"," 6","|"],["|"," 7"," 8"," 9","     ","10","11","12","|"],
         ["|","13","14","15","    "," 16","17","18","|"],["|","19","20","21","     ","22","23","24","|"],
@@ -70,10 +71,18 @@ while menu:
           print("Error, Ingrese un numero entre el 1 y el 42")
       except ValueError:
         print("Error, Ingrese numeros")
-    compra(compra_asiento)
+    fun.compra(compra_asiento)
   elif op == 3:
     if rut != None:
-      print("op3") #momentaneo , programmar aqui!
+      #Ciclo para confirmar si el usuario es dueño del rut, sale del ciclo solo si es correcto
+      while validacion:
+        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para consultar los datos:\t"))                  
+        #Solo sale del ciclo si cumple esta condicion y es un entero
+        if validar_rut == str(rut):
+          print("\nConfirmamos su identidad.")
+          break
+        else:
+          print("\nError, lo sentimos su rut no coincide con nuestros registros")
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     print("\nVolviendo al menu principal...")
