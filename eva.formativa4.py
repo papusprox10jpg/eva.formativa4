@@ -43,26 +43,10 @@ def compra(compra_asiento):
       print("* ","descuento 15%\t","$0")
       print("*"*40)
       print("                           su total es:\t", round(vip))
-
-
-
-
-
-
-
-
-def dispo (sala): #Recordar mover esta funcion a otro archivo!
-  c=0
-  for fila in sala:
-    for asiento in fila :
-      if asiento == "X":
-        c+=1 
-  return  c
-
+import funciones_avion as fun
 validacion = True
 menu = True 
 cont = 0
-
 while menu:
   print("\nVuelos-Duoc")
   print("\nBienvenido!")
@@ -87,9 +71,8 @@ while menu:
           print(matriz[i][j],end=" ")
       print()
     print("\nAsientos ocupados: ")
-    print(dispo(matriz))
-    print("\n1. Asientos normales: $78.900 \n2. Asientos VIP: $240.000\n")
-
+    print(disp_asiento(avion))
+    print("\n1. Asientos normales: del 1 al 30 \n2. Asientos VIP: del 31 al 42\n")
   elif op == 2:
     nom = str("\nIngrese su nombre: \t")
     while validacion:
@@ -136,11 +119,6 @@ while menu:
       except ValueError:
         print("Error, Ingrese numeros")
     compra(compra_asiento)
-
-
-
-
-  
   elif op == 3:
     if rut != None:
       print("op3") #momentaneo , programmar aqui!
