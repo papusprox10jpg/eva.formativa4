@@ -1,12 +1,13 @@
 import funciones_avion as fun
+import numpy as np
 validacion = True
 menu = True 
 cont = 0
-avion = [["|"," 1"," 2"," 3","     "," 4"," 5"," 6","|"],["|"," 7"," 8"," 9","     ","10","11","12","|"],
+avion = np.array([["|"," 1"," 2"," 3","     "," 4"," 5"," 6","|"],["|"," 7"," 8"," 9","     ","10","11","12","|"],
         ["|","13","14","15","    "," 16","17","18","|"],["|","19","20","21","     ","22","23","24","|"],
         ["|","25","26","27","    "," 28","29","30","|"],["|―","――","――","―","     ","―","――","――","―|"],
         ["|_","__","__","_","     ","_","__","__","_|"],["|","31","32","33","    "," 34","35","36","|"],
-        ["|","37","38","39","    "," 40","41","42","|"]] #Gab/sugerencia: Muevo asiento a arriba para organizar las funciones.
+        ["|","37","38","39","    "," 40","41","42","|"]]) #Gab/sugerencia: Muevo asiento a arriba para organizar las funciones.
 while menu:
   print("\n¡Bienvenido a Vuelos-Duoc!")
   print("\n1. Ver asientos disponibles. \n2. Comprar asientos. \n3. Anular vuelo. \n4. Modificar datos de pasajero. \n5. Salir. \n ")
