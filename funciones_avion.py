@@ -33,6 +33,29 @@ def cant_ocupado (mapa_avion):
   print("Asientos ocupados:", cant_disp)
   print()
 
+#Funcion telefono 
+validacion = True
+def validar_telefono(telefono):
+  cont = 0
+  while validacion:
+    try:
+      telefono = int(input("\nIngrese su numero de telefono: (comenzar con el numero 9)\t"))
+      if len(str(telefono)) == 9:
+        for i in str(telefono):
+          if "9" in i:
+            return telefono
+            break
+          else:
+            cont += 1
+        if cont >= 1:
+          print("\nError, Su Telefono debe tener un 9 al principio")
+          cont = 0
+        else:
+          break
+      else:
+        print("\nError, su numero debe tener 9 digitos")
+    except ValueError:
+      print("\nError, ingrese su telefono como numeros")
 
 #Funcion compra
 def compra(compra_asiento,banco):
