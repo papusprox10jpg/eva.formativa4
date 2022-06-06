@@ -80,7 +80,15 @@ while menu:
     
   elif op == 4:
     if rut != None:
-      print("op4") #momentaneo , programar aqui!
+      #Ciclo para confirmar si el usuario es dueño del rut, sale del ciclo solo si es correcto
+      while validacion:
+        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para consultar los datos:\t"))                  
+        #Solo sale del ciclo si cumple esta condicion y es un entero
+        if validar_rut == str(rut):
+          print("\nConfirmamos su identidad.")
+          break
+        else:
+          print("\nError, lo sentimos su rut no coincide con nuestros registros")
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     print("\nVolviendo al menu principal...")
