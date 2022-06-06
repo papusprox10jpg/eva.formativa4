@@ -1,3 +1,4 @@
+import numpy as np
 #Borrado consola
 import os
 def clear():
@@ -58,7 +59,10 @@ def validar_telefono():
       print("\nError, ingrese su telefono como numeros")
 
 #Funcion compra
-def compra(compra_asiento,banco):
+def compra(compra_asiento,banco,avion,asiento):
+  disp_avion = avion.strip()
+  donde = np.where(disp_avion == asiento)
+  avion[tuple(donde)] = "X"
   if compra_asiento > 0 and compra_asiento <= 30 :
     normal = 0
     normal += 78900
