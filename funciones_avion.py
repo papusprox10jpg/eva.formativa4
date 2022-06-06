@@ -33,6 +33,7 @@ def cant_ocupado (mapa_avion):
   print("Asientos ocupados:", cant_disp)
   print()
 
+
 #Funcion compra
 def compra(compra_asiento,banco):
   if compra_asiento > 0 and compra_asiento <= 30 :
@@ -67,7 +68,7 @@ def compra(compra_asiento,banco):
       print("\n")
       print("*"*40)
       print("Boleta:")
-      print("* "," asientos normales\t","$240.000" )
+      print("* "," asientos VIP\t","$240.000" )
       print("* ","descuento 15%\t","$36.000")
       print("*"*40)
       print("                           su total es:\t", round(vip))
@@ -75,7 +76,7 @@ def compra(compra_asiento,banco):
       print("\n")
       print("*"*40)
       print("Boleta:")
-      print("* "," asientos normales\t","$240.000" )
+      print("* "," asientos VIP\t","$240.000" )
       print("* ","descuento 15%\t","$0")
       print("*"*40)
       print("                           su total es:\t", round(vip))
