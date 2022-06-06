@@ -118,3 +118,9 @@ def modificar_datos(opcion):
     print("\nModificando telefono: ")
     telefono = validar_telefono()
     return telefono
+
+def anular_pasaje(nombre,rut,telefono,banco):
+  #anular datos
+  nombre = None ; rut = None ; telefono = None ; banco = None
+  return nombre,rut,telefono,banco
+
