@@ -70,7 +70,7 @@ while menu:
           print("Error, Ingrese un numero entre el 1 y el 42")
       except ValueError:
         print("Error, Ingrese numeros")
-    compra(compra_asiento)
+    fun.compra(compra_asiento)
   elif op == 3:
     if rut != None:
       print("op3") #momentaneo , programmar aqui!
