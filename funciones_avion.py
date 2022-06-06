@@ -36,7 +36,7 @@ def cant_ocupado (mapa_avion):
 
 #Funcion telefono 
 validacion = True
-def validar_telefono(telefono):
+def validar_telefono():
   cont = 0
   while validacion:
     try:
@@ -95,7 +95,7 @@ def compra(compra_asiento,banco,avion,asiento):
       print("\n")
       print("*"*40)
       print("Boleta:")
-      print("* "," asientos VIP\t","$240.000" )
+      print("* "," asientos normales\t","$240.000" )
       print("* ","descuento 15%\t","$36.000")
       print("*"*40)
       print("                           su total es:\t", round(vip))
@@ -103,7 +103,18 @@ def compra(compra_asiento,banco,avion,asiento):
       print("\n")
       print("*"*40)
       print("Boleta:")
-      print("* "," asientos VIP\t","$240.000" )
+      print("* "," asientos normales\t","$240.000" )
       print("* ","descuento 15%\t","$0")
       print("*"*40)
       print("                           su total es:\t", round(vip))
+
+#Funcion modificar
+def modificar_datos(opcion):
+  if opcion == 1:
+    print("\nModificando nombre: ")
+    nom = str(input("\nIngrese su nuevo nombre: \t"))
+    return nom
+  elif opcion == 2:
+    print("\nModificando telefono: ")
+    telefono = validar_telefono()
+    return telefono

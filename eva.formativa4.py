@@ -11,13 +11,13 @@ avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], 
     "|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
     ["|_", "__", "__", "_", "     ", "_", "__", "__", "_|"], [
     "|", "31", "32", "33", "    ", " 34", "35", "36", "|"],
-    ["|", "37", "38", "39", "    ", " 40", "41", "42", "|"]])# Gab/sugerencia: Muevo asiento a arriba para organizar las funciones.
+    ["|", "37", "38", "39", "    ", " 40", "41", "42", "|"]])
 while menu:
   print("\n¡Bienvenido a Vuelos-Duoc!")
   print("\n1. Ver asientos disponibles. \n2. Comprar asientos. \n3. Anular vuelo. \n4. Modificar datos de pasajero. \n5. Salir. \n ")
   while validacion:
     try:
-      op = int(input("\nIngrese la opción que desee: \t"))
+      op = int(input("Ingrese la opción que desee: \t"))
       if op >=1 and op<=5:
         break
       else:
@@ -41,31 +41,17 @@ while menu:
           print("\nError: RUT inválido, ingrese correctamente ")
       except ValueError:
         print("\nError, ingrese su rut sin puntos ni digito verificador")
-    while validacion:
-      try:
-        telefono = (input("\nIngrese su numero de telefono: (comenzar con el numero 9)\t"))
-        if len(telefono) == 9:
-          break
-        else :
-          print("\nError, su numero debe tener 9 digitos")
-      except ValueError:
-        print("\nError, ingrese su telefono como numero ")
-        
-      for i in telefono:
-        if "9" in i:
-          break
-        else:
-          cont += 1
-      if cont >= 1:
-        print("\nError, Su Telefono debe tener un 9 al principio")
-        cont = 0
-    while validacion:
-      banco = input("\nPertenece al bancoDuoc: \t")
+    #telefono = validar_telefono() quitar # en el git
+    while validacion: 
+      banco = input("\nIngrese su banco: \t") #cambiar definicion de compra ya que se cambiaron las opciones
       banco.lower()
-      if banco == "si" or banco =="no":
+      if banco == "bancoduoc" or banco == "banco duoc" or banco == "duoc":
+        print("\nFelicidades, se le aplicara un descuento del 15% en la compra total del pasaje")
+        banco_duoc = True
         break
       else:
-        print("\nError, Ingrese como opcion (si/no): \t")
+        banco_duoc = False
+        break
     while validacion:
       try:
         compra_asiento= int(input("\nIngrese el asiento deseado: \t"))
@@ -79,30 +65,44 @@ while menu:
     fun.compra(compra_asiento,banco,avion,asiento)
   elif op == 3:
     if rut != None:
-      #Ciclo para confirmar si el usuario es dueño del rut, sale del ciclo solo si es correcto
       while validacion:
-        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para consultar los datos:\t"))                  
-        #Solo sale del ciclo si cumple esta condicion y es un entero
+        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para cancelar su asiento y borrar sus datos:\t"))
+
         if validar_rut == str(rut):
           print("\nConfirmamos su identidad.")
           break
         else:
           print("\nError, lo sentimos su rut no coincide con nuestros registros")
+      #nombre,rut,telefono,banco = anular_pasaje(nombre,rut,telefono,banco) quitar # en git, falta ingresar el argumento pasaje para habilitar el asiento
+      print("\nDatos eliminados y asiento otra vez valido")
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     print("\nVolviendo al menu principal...")
     
   elif op == 4:
-    if rut != None:
-      #Ciclo para confirmar si el usuario es dueño del rut, sale del ciclo solo si es correcto
+    
+    if rut != None:    
       while validacion:
-        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para consultar los datos:\t"))                  
-        #Solo sale del ciclo si cumple esta condicion y es un entero
-        if validar_rut == str(rut):
+        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para modificar sus datos:\t"))
+        validar_asiento = str(input("\nIngrese su asiento actualmente:\t"))
+        if validar_rut == str(rut) and validar_asiento == str(compra_asiento):
           print("\nConfirmamos su identidad.")
           break
         else:
-          print("\nError, lo sentimos su rut no coincide con nuestros registros")
+          print("\nError, lo sentimos su rut o asiento no coincide con nuestros registros")
+      print("\n1. Modificar nombre. \n2. Modificar telefono. ")
+      while validacion:
+        try:
+          op2 = int(input("\nIngrese la opción que desee2: \t"))
+          if op2 == 1 or op2 == 2:
+            break
+          else:
+            print("\nError: Ingrese un numero entre el 1 y 2")
+        except ValueError:
+          print("\nError: Ingrese la opcion como un numero")
+      #dato_modificado = modificar_datos(opcion)
+      print("\nEl dato fue modificado, volviendo al menu anterior..")
+
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     print("\nVolviendo al menu principal...")
