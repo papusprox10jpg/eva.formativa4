@@ -35,7 +35,7 @@ def cant_ocupado (mapa_avion):
 
 #Funcion telefono 
 validacion = True
-def validar_telefono(telefono):
+def validar_telefono():
   cont = 0
   while validacion:
     try:
@@ -114,3 +114,8 @@ def modificar_datos(opcion):
     print("\nModificando telefono: ")
     telefono = validar_telefono()
     return telefono
+
+def anular_pasaje(nombre,rut,telefono,banco):
+  #anular datos
+  nombre = None ; rut = None ; telefono = None ; banco = None
+  return nombre,rut,telefono,banco
