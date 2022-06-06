@@ -4,7 +4,7 @@ validacion = True
 menu = True 
 cont = 0
 rut = None
-avion = np.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
+avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
                   ["|", "13", "14", "15", "    ", " 16", "17", "18", "|"], [
     "|", "19", "20", "21", "     ", "22", "23", "24", "|"],
     ["|", "25", "26", "27", "    ", " 28", "29", "30", "|"], [
@@ -75,7 +75,8 @@ while menu:
           print("Error, Ingrese un numero entre el 1 y el 42")
       except ValueError:
         print("Error, Ingrese numeros")
-    fun.compra(compra_asiento)
+    asiento=str(compra_asiento)
+    fun.compra(compra_asiento,banco,avion,asiento)
   elif op == 3:
     if rut != None:
       #Ciclo para confirmar si el usuario es dueño del rut, sale del ciclo solo si es correcto
