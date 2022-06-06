@@ -119,3 +119,4 @@ def anular_pasaje(nombre,rut,telefono,banco):
   #anular datos
   nombre = None ; rut = None ; telefono = None ; banco = None
   return nombre,rut,telefono,banco
+
