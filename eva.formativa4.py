@@ -63,7 +63,9 @@ while menu:
         print("Error, Ingrese numeros")
     asiento=str(compra_asiento)
     fun.compra(compra_asiento,banco,avion,asiento)
+    fun.ir_menu()
   elif op == 3:
+    fun.clear()
     if rut != None:
       while validacion:
         validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para cancelar su asiento y borrar sus datos:\t"))
@@ -78,8 +80,10 @@ while menu:
       
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
-    print("\nVolviendo al menu principal...")  
-  elif op == 4:   
+    print("\nVolviendo al menu principal...") ç
+    fun.ir_menu() 
+  elif op == 4:
+    fun.clear()   
     if rut != None:
       while validacion:
         validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para modificar sus datos:\t"))
@@ -113,6 +117,8 @@ while menu:
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     print("\nVolviendo al menu principal...")
+    fun.ir_menu()
   elif op == 5:
+    fun.clear() 
     print("\nSaliendo del programa...")
     break
