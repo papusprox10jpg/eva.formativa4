@@ -3,6 +3,7 @@ import numpy as np
 import os
 def clear():
     os.system('cls')
+    os.system('clear')
 clear()
 
 #Continuar - borrado de consola
