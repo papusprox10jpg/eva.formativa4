@@ -22,7 +22,7 @@ def disp_asiento (mapa_avion):#agrego nombre más claro.
       print(mapa_avion[i][j], end=" ")
     print()
   print()
-  print("1.Asientos normales: del 1 al 30. \n2. Asientos VIP: del 31 al 42.")
+  print("1.Asientos normales: del 1 al 30. \n2.Asientos VIP: del 31 al 42.")
   print()
 
 #Contar asientos ocupados
@@ -30,7 +30,7 @@ def cant_ocupado (mapa_avion):
   cant_disp=0
   for fila in mapa_avion: #indexación de cada fila de la matriz
     for asiento in fila : #indexación en cada valor de cada fila
-      if asiento == "X": #si algun valor es X, retorna disponibildiad
+      if asiento == "X" or asiento == " X": #si algun valor es X, retorna disponibildiad
         cant_disp+=1
   print("Asientos ocupados:", cant_disp)
   print()
@@ -70,31 +70,33 @@ def compra(compra_asiento,banco,avion,asiento):
   if compra_asiento > 0 and compra_asiento <= 30 :
     normal = 78900
     vip=0
+    print("\n")
+    print("*"*40)
     if banco == False:
-      print("\n")
-      print("*"*40)
       print("Boleta:")
-      print("* ","asientos normales\t",normal)
-      if banco:
-        descuento = normal * 0.15
-        normal = normal - descuento
-        print("* ","descuento 15%\t",descuento)
-      print("*"*40)
+      print("* ","asientos normales\t$",normal)
+    elif banco:
+      descuento = normal * 0.15
+      normal = normal - descuento
+      print("* ","asientos normales\t$",normal)
+      print("* ","descuento 15%\t$",round(descuento))
+    print("*"*40)
   if compra_asiento >= 31 and compra_asiento <= 42:
     vip = 240000
     normal=0
+    print("\n")
+    print("*"*40)
     if banco == False:
-      print("\n")
-      print("*"*40)
       print("Boleta:")
-      print("* ","asientos normales\t",vip )
-      if banco:
-        descuento = vip * 0.15
-        vip = vip - descuento
-        print("* ","descuento 15%\t",descuento)
-      print("*"*40)
+      print("* ","asientos Vip\t$",vip )
+    elif banco:
+      descuento = vip * 0.15
+      vip = vip - descuento
+      print("* ","asientos Vip\t$",vip )
+      print("* ","descuento 15%\t$",round(descuento))
+    print("*"*40)
   total = vip + normal
-  print("                           su total es:\t", round(total))
+  print("                           su total es:\t$", round(total))
 #Funcion modificar
 def modificar_datos(opcion):
   if opcion == 1:
@@ -106,10 +108,9 @@ def modificar_datos(opcion):
     telefono = validar_telefono()
     return telefono
 
-def anular_pasaje(asiento,nombre,rut,telefono,banco):
+def anular_pasaje(nombre,rut,telefono,banco):
   #anular datos
 
   nombre = None ; rut = None ; telefono = None ; banco = None
   
   return nombre,rut,telefono,banco
-

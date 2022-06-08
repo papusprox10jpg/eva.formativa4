@@ -64,7 +64,7 @@ while menu:
       except ValueError:
         print("Error, Ingrese numeros")
     asiento=str(compra_asiento)
-    fun.compra(compra_asiento,banco,avion,asiento)
+    fun.compra(compra_asiento,banco_duoc,avion,asiento)
     fun.ir_menu()
   elif op == 3:
     fun.clear()
@@ -76,15 +76,7 @@ while menu:
           break
         else:
           print("\nError, lo sentimos su rut no coincide con nuestros registros")
-      #nom,rut,telefono,banco = fun.anular_pasaje(asiento,nom,rut,telefono,banco) #falta ingresar el argumento pasaje para habilitar el asiento
-      asiento_nul=input("asiento")
-      disp_mapa_avion = mapa_avion.strip()
-      ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
-      if asiento in ("1,2,3,4,5,6,7,8,9"):
-        avion[tuple(ub_anul_asiento)] = " "+asiento_nul
-      else:
-        avion[tuple(donde)] = asiento_nul
-      print("\nDatos eliminados y asiento otra vez valido")
+      nom,rut,telefono,banco = fun.anular_pasaje(nom,rut,telefono,banco) #falta ingresar el argumento pasaje para habilitar el asiento
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     fun.ir_menu() 
