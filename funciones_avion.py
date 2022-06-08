@@ -10,13 +10,14 @@ clear()
 from time import sleep
 def ir_menu():
   sleep(1)
-  next = input("Para volver al menú principal presione una tecla.")
+  next = input("\nPara volver al menú principal presione una tecla.")
   clear()
 
 #Mostrar asientos disponibles
 #Según el requisito: Mostrará por pantalla todos los asientos disponibles con su número de asiento y los no disponibles los con una “X”
 def disp_asiento (mapa_avion):#agrego nombre más claro.
   print("*"*3,"Asientos del  avión","*"*3)
+  print()
   for i in range(9):
     for j in range(9):
       print(mapa_avion[i][j], end=" ")
@@ -46,7 +47,6 @@ def validar_telefono():
       if len(str(telefono)) == 9:
         for i in str(telefono):
           if "9" in i:
-            return telefono
             break
           else:
             cont += 1
@@ -59,6 +59,7 @@ def validar_telefono():
         print("\nError, su numero debe tener 9 digitos")
     except ValueError:
       print("\nError, ingrese su telefono como numeros")
+  return telefono
 
 #Funcion compra
 def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
@@ -75,6 +76,7 @@ def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
       descuento = normal * 0.15
       normal = normal - descuento
       print("* ","descuento 15%:\t$",round(descuento))
+    print()
     print("*"*40)
   elif compra_asiento >= 31 and compra_asiento <= 42:
     vip += 240000
@@ -86,6 +88,7 @@ def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
       descuento = vip * 0.15
       vip = vip - descuento
       print("* ","descuento 15%:\t$",round(descuento))
+    print()
     print("*"*40)
   total = total + vip + normal
   print("            su total es:\t$", round(total))
@@ -100,8 +103,7 @@ def modificar_datos(opcion):
     telefono = validar_telefono()
     return telefono
 
-def anular_pasaje(nombre,rut,telefono,banco,avion):
-  #anular datos
+def anular_pasaje(avion):
   mapa_avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
                               ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
                               ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
@@ -109,22 +111,36 @@ def anular_pasaje(nombre,rut,telefono,banco,avion):
                               ["|", "37", "38", "39", "     ", "40", "41", "42", "|"]])
   while validacion:
     try:
-      asiento_nul = int(input("\nIngrese el asiento que desea anular: "))
-      if asiento_nul > 0 and asiento_nul <= 42:
+      asiento_nul = int(input("\nIngrese el asiento que desea anular o ingrese 0 para salir: "))
+      asiento2 = str(asiento_nul)
+      check_avion = valid_compra(asiento2, avion)
+      if asiento_nul > 0 and asiento_nul <= 42 and check_avion == False:
         asiento_nul = str(asiento_nul)
+        print("\nEl asiento:",asiento_nul,"fue eliminado...")
         break
+      elif asiento_nul == 0:
+        print("\nVolviendo al menu..")
+        break
+      elif check_avion == True:
+        print("\nError: El asiento esta libre actualmente")
+      else:
+        print("\nError: Ingrese un numero entre el 1 y el 42")
     except ValueError:
       print("\nError: Ingrese el asiento como un numero")
-  disp_mapa_avion = mapa_avion.strip()
-  ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
-  if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
-    avion[tuple(ub_anul_asiento)] = " "+asiento_nul
-  else:
-    avion[tuple(ub_anul_asiento)] = asiento_nul
+  if asiento_nul != 0:
+    disp_mapa_avion = mapa_avion.strip()
+    ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
+    if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
+      avion[tuple(ub_anul_asiento)] = " "+asiento_nul
+    else:
+      avion[tuple(ub_anul_asiento)] = asiento_nul
+    return asiento_nul
+
+def eliminar_datos(nombre,rut,telefono,banco):
   nombre = None ; rut = None ; telefono = None ; banco = None
   return nombre,rut,telefono,banco
 
-  #Función no comprar el mismo pasaje
+#Función no comprar el mismo pasaje
 def valid_compra(asiento,avion):
   raw_avion = avion.strip()
   if asiento in raw_avion:
