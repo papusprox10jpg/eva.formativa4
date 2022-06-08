@@ -109,5 +109,6 @@ def modificar_datos(opcion):
 def anular_pasaje(asiento,nombre,rut,telefono,banco):
   #anular datos
   nombre = None ; rut = None ; telefono = None ; banco = None
+  
   return nombre,rut,telefono,banco
 
