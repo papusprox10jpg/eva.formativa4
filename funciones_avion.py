@@ -60,16 +60,11 @@ def validar_telefono():
       print("\nError, ingrese su telefono como numeros")
 
 #Funcion compra
-def compra(compra_asiento,banco,avion,asiento):
+def compra(compra_asiento,banco,avion,asiento,normal,vip):
   disp_avion = avion.strip()
   donde = np.where(disp_avion == asiento)
-  if asiento in ("1,2,3,4,5,6,7,8,9"):
-    avion[tuple(donde)] = " X"
-  else:
-    avion[tuple(donde)] = "X"
+  avion[tuple(donde)] = " X"
   if compra_asiento > 0 and compra_asiento <= 30 :
-    normal = 78900
-    vip=0
     print("\n")
     print("*"*40)
     if banco == False:
@@ -82,8 +77,6 @@ def compra(compra_asiento,banco,avion,asiento):
       print("* ","descuento 15%\t$",round(descuento))
     print("*"*40)
   if compra_asiento >= 31 and compra_asiento <= 42:
-    vip = 240000
-    normal=0
     print("\n")
     print("*"*40)
     if banco == False:
