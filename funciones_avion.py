@@ -27,13 +27,14 @@ def disp_asiento (mapa_avion):#agrego nombre más claro.
 
 #Contar asientos ocupados
 def cant_ocupado (mapa_avion):
-  cant_disp=0
+  cant_ocupados=0
   for fila in mapa_avion: #indexación de cada fila de la matriz
     for asiento in fila : #indexación en cada valor de cada fila
       if asiento == "X" or asiento == " X": #si algun valor es X, retorna disponibildiad
-        cant_disp+=1
-  print("Asientos ocupados:", cant_disp)
+        cant_ocupados+=1
+  print("Asientos ocupados:", cant_ocupados)
   print()
+  return cant_ocupados
 
 #Funcion telefono 
 validacion = True
