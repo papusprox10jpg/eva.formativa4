@@ -38,9 +38,9 @@ while menu:
         if rut >= 5000000 and rut <= 99999999:
           break
         else:
-          print("\nError: RUT inválido, ingrese correctamente ")
+          print("\nError: RUT inválido, ingrese correctamente.")
       except ValueError:
-        print("\nError, ingrese su rut sin puntos ni digito verificador")
+        print("\nError, ingrese su rut sin puntos ni digito verificador.")
     telefono = fun.validar_telefono()
     while validacion: 
       banco = input("\nIngrese su banco: \t") #cambiar definicion de compra ya que se cambiaron las opciones
@@ -66,21 +66,41 @@ while menu:
       except ValueError:
         print("Error, Ingrese numeros")
     fun.compra(compra_asiento, banco_duoc, avion, asiento, normal, vip,total)
+    print()
     fun.ir_menu()
   elif op == 3:
     fun.clear()
     if rut != None:
       while validacion:
-        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para cancelar su asiento y borrar sus datos:\t"))
+        validar_rut = str(input("\nBienvenid@ si esta registrad@ ingrese su RUT para cancelar su asiento o borrar sus datos:\t"))
         if validar_rut == str(rut):
           print("\nConfirmamos su identidad.")
           break
         else:
           print("\nError, lo sentimos su rut no coincide con nuestros registros")
-      nom,rut,telefono,banco = fun.anular_pasaje(nom,rut,telefono,banco,avion) #falta ingresar el argumento pasaje para habilitar el asiento
+      while menu:
+        print("\n1. Eliminar datos. \n2. Eliminar Asiento. \n3. Salir" )
+        while validacion:
+          try:
+            op3 = int(input("\nIngrese la opción que desee: \t"))
+            if op3 == 1 or op3 == 2 or op3 == 3:
+              break
+            else:
+              print("\nError: Ingrese un numero entre el 1 y 3")
+          except ValueError:
+            print("\nError: Ingrese la opcion como un numero")
+        if op3 == 1:
+          nom,rut,telefono,banco = fun.eliminar_datos(nom,rut,telefono,banco)
+          print("\nDatos eliminados..")
+        elif op3 == 2:
+          fun.anular_pasaje(avion)
+          print("\nSi el asiento estaba ocupado, fue eliminado...")
+        elif op3 == 3:
+          break
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
-    fun.ir_menu() 
+    print()
+    fun.ir_menu()
   elif op == 4:
     fun.clear()   
     if rut != None:
@@ -100,7 +120,7 @@ while menu:
             if op2 == 1 or op2 == 2 or op2 == 3 or op2 == 4:
               break
             else:
-              print("\nError: Ingrese un numero entre el 1 y 2")
+              print("\nError: Ingrese un numero entre el 1 y 4")
           except ValueError:
             print("\nError: Ingrese la opcion como un numero")
         dato_modificado = fun.modificar_datos(op2)
@@ -111,10 +131,10 @@ while menu:
         elif op2 == 3:
           print("\nSus datos actuales son: \nNombre:",nom,"\nRut:",rut,"\nTelefono:",telefono,"\nbanco:",banco,"\nasiento:",compra_asiento)
         elif op2 == 4:
-          print("\nVolviendo al menu anterior...")
           break
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
+    print()
     fun.ir_menu()
   elif op == 5:
     fun.clear() 

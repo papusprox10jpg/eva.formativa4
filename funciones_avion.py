@@ -100,8 +100,7 @@ def modificar_datos(opcion):
     telefono = validar_telefono()
     return telefono
 
-def anular_pasaje(nombre,rut,telefono,banco,avion):
-  #anular datos
+def anular_pasaje(avion):
   mapa_avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
                               ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
                               ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
@@ -121,10 +120,12 @@ def anular_pasaje(nombre,rut,telefono,banco,avion):
     avion[tuple(ub_anul_asiento)] = " "+asiento_nul
   else:
     avion[tuple(ub_anul_asiento)] = asiento_nul
+
+def eliminar_datos(nombre,rut,telefono,banco):
   nombre = None ; rut = None ; telefono = None ; banco = None
   return nombre,rut,telefono,banco
 
-  #Función no comprar el mismo pasaje
+#Función no comprar el mismo pasaje
 def valid_compra(asiento,avion):
   raw_avion = avion.strip()
   if asiento in raw_avion:
