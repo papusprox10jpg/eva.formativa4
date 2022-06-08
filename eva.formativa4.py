@@ -55,13 +55,16 @@ while menu:
     while validacion:
       try:
         compra_asiento= int(input("\nIngrese el asiento deseado: \t"))
-        if compra_asiento > 0 and compra_asiento < 43:
+        asiento = str(compra_asiento)
+        check_avion = fun.valid_compra(asiento, avion)
+        if compra_asiento > 0 and compra_asiento < 43 and check_avion == True:
           break
+        elif check_avion == False:
+          print("El asiento ya ha sido comprado. Intente otro.")
         else:
           print("Error, Ingrese un numero entre el 1 y el 42")
       except ValueError:
         print("Error, Ingrese numeros")
-    asiento=str(compra_asiento)
     fun.compra(compra_asiento, banco_duoc, avion, asiento, normal, vip,total)
     fun.ir_menu()
   elif op == 3:

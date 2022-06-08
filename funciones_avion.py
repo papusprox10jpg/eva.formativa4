@@ -122,3 +122,11 @@ def anular_pasaje(nombre,rut,telefono,banco,avion):
     avion[tuple(ub_anul_asiento)] = asiento_nul
   nombre = None ; rut = None ; telefono = None ; banco = None
   return nombre,rut,telefono,banco
+
+  #Función no comprar el mismo pasaje
+def valid_compra(asiento,avion):
+  raw_avion = avion.strip()
+  if asiento in raw_avion:
+    return True
+  else:
+    return False
