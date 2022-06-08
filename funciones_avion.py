@@ -108,18 +108,30 @@ def anular_pasaje(avion):
                               ["|", "37", "38", "39", "     ", "40", "41", "42", "|"]])
   while validacion:
     try:
-      asiento_nul = int(input("\nIngrese el asiento que desea anular: "))
-      if asiento_nul > 0 and asiento_nul <= 42:
+      asiento_nul = int(input("\nIngrese el asiento que desea anular o ingrese 0 para salir: "))
+      asiento2 = str(asiento_nul)
+      check_avion = valid_compra(asiento2, avion)
+      if asiento_nul > 0 and asiento_nul <= 42 and check_avion == False:
         asiento_nul = str(asiento_nul)
+        print("\nEl asiento:",asiento_nul,"fue eliminado...")
         break
+      elif asiento_nul == 0:
+        print("\nVolviendo al menu..")
+        break
+      elif check_avion == True:
+        print("\nError: El asiento esta libre actualmente")
+      else:
+        print("\nError: Ingrese un numero entre el 1 y el 42")
     except ValueError:
       print("\nError: Ingrese el asiento como un numero")
-  disp_mapa_avion = mapa_avion.strip()
-  ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
-  if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
-    avion[tuple(ub_anul_asiento)] = " "+asiento_nul
-  else:
-    avion[tuple(ub_anul_asiento)] = asiento_nul
+  if asiento_nul != 0:
+    disp_mapa_avion = mapa_avion.strip()
+    ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
+    if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
+      avion[tuple(ub_anul_asiento)] = " "+asiento_nul
+    else:
+      avion[tuple(ub_anul_asiento)] = asiento_nul
+    return asiento_nul
 
 def eliminar_datos(nombre,rut,telefono,banco):
   nombre = None ; rut = None ; telefono = None ; banco = None

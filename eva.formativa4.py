@@ -93,8 +93,7 @@ while menu:
           nom,rut,telefono,banco = fun.eliminar_datos(nom,rut,telefono,banco)
           print("\nDatos eliminados..")
         elif op3 == 2:
-          fun.anular_pasaje(avion)
-          print("\nSi el asiento estaba ocupado, fue eliminado...")
+          asiento_nul = fun.anular_pasaje(avion)
         elif op3 == 3:
           break
     else:
