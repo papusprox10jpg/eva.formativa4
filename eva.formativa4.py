@@ -4,6 +4,11 @@ validacion = True
 menu = True 
 cont = 0
 rut = None
+mapa_avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
+                       ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
+                       ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
+                       ["|_", "__", "__", "_", "     ", "_", "__", "__", "_|"], ["|", "31", "32", "33", "    ", "34", "35", "36", "|"],
+                       ["|", "37", "38", "39", "     ", "40", "41", "42", "|"]])
 avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
                        ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
                        ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
@@ -71,10 +76,15 @@ while menu:
           break
         else:
           print("\nError, lo sentimos su rut no coincide con nuestros registros")
-      nom,rut,telefono,banco = fun.anular_pasaje(nom,rut,telefono,banco) #falta ingresar el argumento pasaje para habilitar el asiento
-      print("\nSus datos actuales son: \nNombre:",nom,"\nRut:",rut,"\nTelefono:",telefono,"\nbanco:",banco,"\nasiento:",compra_asiento)
+      #nom,rut,telefono,banco = fun.anular_pasaje(asiento,nom,rut,telefono,banco) #falta ingresar el argumento pasaje para habilitar el asiento
+      asiento_nul=input("asiento")
+      disp_mapa_avion = mapa_avion.strip()
+      ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
+      if asiento in ("1,2,3,4,5,6,7,8,9"):
+        avion[tuple(ub_anul_asiento)] = " "+asiento_nul
+      else:
+        avion[tuple(donde)] = asiento_nul
       print("\nDatos eliminados y asiento otra vez valido")
-      
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
     fun.ir_menu() 
