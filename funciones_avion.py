@@ -108,9 +108,19 @@ def modificar_datos(opcion):
     telefono = validar_telefono()
     return telefono
 
-def anular_pasaje(nombre,rut,telefono,banco):
+def anular_pasaje(nombre,rut,telefono,banco,avion):
   #anular datos
-
+  mapa_avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
+                              ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
+                              ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
+                              ["|_", "__", "__", "_", "     ", "_", "__", "__", "_|"], ["|", "31", "32", "33", "    ", "34", "35", "36", "|"],
+                              ["|", "37", "38", "39", "     ", "40", "41", "42", "|"]])
+  asiento_nul = input("asiento")
+  disp_mapa_avion = mapa_avion.strip()
+  ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
+  if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
+    avion[tuple(ub_anul_asiento)] = " "+asiento_nul
+  else:
+    avion[tuple(ub_anul_asiento)] = asiento_nul
   nombre = None ; rut = None ; telefono = None ; banco = None
-  
   return nombre,rut,telefono,banco
