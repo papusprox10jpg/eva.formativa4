@@ -4,8 +4,9 @@ validacion = True
 menu = True 
 cont = 0
 rut = None
-normal = 78900
-vip = 240000
+normal = 0
+vip = 0
+total = 0
 avion = np.char.array([["|", " 1", " 2", " 3", "     ", " 4", " 5", " 6", "|"], ["|", " 7", " 8", " 9", "     ", "10", "11", "12", "|"],
                        ["|", "13", "14", "15", "     ", "16", "17", "18", "|"], ["|", "19", "20", "21", "     ", "22", "23", "24", "|"],
                        ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
@@ -61,7 +62,7 @@ while menu:
       except ValueError:
         print("Error, Ingrese numeros")
     asiento=str(compra_asiento)
-    fun.compra(compra_asiento, banco_duoc, avion, asiento, normal, vip)
+    fun.compra(compra_asiento, banco_duoc, avion, asiento, normal, vip,total)
     fun.ir_menu()
   elif op == 3:
     fun.clear()

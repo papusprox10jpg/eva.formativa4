@@ -60,36 +60,34 @@ def validar_telefono():
       print("\nError, ingrese su telefono como numeros")
 
 #Funcion compra
-def compra(compra_asiento,banco,avion,asiento,normal,vip):
+def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
   disp_avion = avion.strip()
   donde = np.where(disp_avion == asiento)
   avion[tuple(donde)] = " X"
   if compra_asiento > 0 and compra_asiento <= 30 :
+    normal += 78900
     print("\n")
     print("*"*40)
-    if banco == False:
-      print("Boleta:")
-      print("* ","asientos normales\t$",normal)
-    elif banco:
+    print("Boleta:")
+    print("* ","asientos normales:\t$",round(normal))
+    if banco:
       descuento = normal * 0.15
       normal = normal - descuento
-      print("* ","asientos normales\t$",normal)
-      print("* ","descuento 15%\t$",round(descuento))
+      print("* ","descuento 15%:\t$",round(descuento))
     print("*"*40)
-  if compra_asiento >= 31 and compra_asiento <= 42:
+  elif compra_asiento >= 31 and compra_asiento <= 42:
+    vip += 240000
     print("\n")
     print("*"*40)
-    if banco == False:
-      print("Boleta:")
-      print("* ","asientos Vip\t$",vip )
-    elif banco:
+    print("Boleta:")
+    print("* ","asientos Vip:\t$",round(vip))
+    if banco:
       descuento = vip * 0.15
       vip = vip - descuento
-      print("* ","asientos Vip\t$",vip )
-      print("* ","descuento 15%\t$",round(descuento))
+      print("* ","descuento 15%:\t$",round(descuento))
     print("*"*40)
-  total = vip + normal
-  print("                           su total es:\t$", round(total))
+  total = total + vip + normal
+  print("            su total es:\t$", round(total))
 #Funcion modificar
 def modificar_datos(opcion):
   if opcion == 1:
@@ -108,7 +106,14 @@ def anular_pasaje(nombre,rut,telefono,banco,avion):
                               ["|", "25", "26", "27", "     ", "28", "29", "30", "|"], ["|―", "――", "――", "―", "     ", "―", "――", "――", "―|"],
                               ["|_", "__", "__", "_", "     ", "_", "__", "__", "_|"], ["|", "31", "32", "33", "    ", "34", "35", "36", "|"],
                               ["|", "37", "38", "39", "     ", "40", "41", "42", "|"]])
-  asiento_nul = input("asiento")
+  while validacion:
+    try:
+      asiento_nul = int(input("\nIngrese el asiento que desea anular: "))
+      if asiento_nul > 0 and asiento_nul <= 42:
+        asiento_nul = str(asiento_nul)
+        break
+    except ValueError:
+      print("\nError: Ingrese el asiento como un numero")
   disp_mapa_avion = mapa_avion.strip()
   ub_anul_asiento = np.where(disp_mapa_avion == asiento_nul)
   if asiento_nul in ("1,2,3,4,5,6,7,8,9"):
