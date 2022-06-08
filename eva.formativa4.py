@@ -27,7 +27,7 @@ while menu:
   if op == 1:
     fun.clear()
     fun.disp_asiento(avion)
-    fun.cant_ocupado(avion)
+    asientos_ocupados = fun.cant_ocupado(avion)
     fun.ir_menu()
   elif op == 2:
     fun.clear()
