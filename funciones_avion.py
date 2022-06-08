@@ -63,7 +63,10 @@ def validar_telefono():
 def compra(compra_asiento,banco,avion,asiento):
   disp_avion = avion.strip()
   donde = np.where(disp_avion == asiento)
-  avion[tuple(donde)] = "X"
+  if asiento in ("1,2,3,4,5,6,7,8,9"):
+    avion[tuple(donde)] = " X"
+  else:
+    avion[tuple(donde)] = "X"
   if compra_asiento > 0 and compra_asiento <= 30 :
     normal = 0
     normal += 78900
