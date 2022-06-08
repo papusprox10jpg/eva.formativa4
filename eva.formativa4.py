@@ -80,7 +80,7 @@ while menu:
       
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
-    print("\nVolviendo al menu principal...") ç
+    print("\nVolviendo al menu principal...")
     fun.ir_menu() 
   elif op == 4:
     fun.clear()   
