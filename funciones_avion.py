@@ -66,48 +66,31 @@ def compra(compra_asiento,banco,avion,asiento):
   if compra_asiento > 0 and compra_asiento <= 30 :
     normal = 0
     normal += 78900
-    if banco == "si":
+    if banco:
       descuento = normal * 0.15
       normal = normal - descuento
       print("\n")
       print("*"*40)
       print("Boleta:")
-      print("* "," asientos normales\t","$78.900" )
-      print("* ","descuento 15%\t","$11.835")
+      print("* ","asientos normales\t","$78.900" )
+      if banco:
+        print("* ","descuento 15%\t","$11.835")
       print("*"*40)
       print("                           su total es:\t", round(normal))
-
-    else:
-      print("\n")
-      print("*"*40)
-      print("Boleta:")
-      print("* "," asientos normales\t","$78.900" )
-      print("* ","descuento 15%\t","$0")
-      print("*"*40)
-      print("                           su total es:\t", round(normal))
-
   if compra_asiento >= 31 and compra_asiento <= 42:
     vip = 0
     vip += 240000
-    if banco == "si":
+    if banco:
       descuento = vip * 0.15
       vip = vip - descuento
       print("\n")
       print("*"*40)
       print("Boleta:")
       print("* "," asientos normales\t","$240.000" )
-      print("* ","descuento 15%\t","$36.000")
+      if banco:
+        print("* ","descuento 15%\t","$36.000")
       print("*"*40)
       print("                           su total es:\t", round(vip))
-    else:
-      print("\n")
-      print("*"*40)
-      print("Boleta:")
-      print("* "," asientos normales\t","$240.000" )
-      print("* ","descuento 15%\t","$0")
-      print("*"*40)
-      print("                           su total es:\t", round(vip))
-
 #Funcion modificar
 def modificar_datos(opcion):
   if opcion == 1:
@@ -119,7 +102,7 @@ def modificar_datos(opcion):
     telefono = validar_telefono()
     return telefono
 
-def anular_pasaje(nombre,rut,telefono,banco):
+def anular_pasaje(asiento,nombre,rut,telefono,banco):
   #anular datos
   nombre = None ; rut = None ; telefono = None ; banco = None
   return nombre,rut,telefono,banco
