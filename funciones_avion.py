@@ -10,13 +10,14 @@ clear()
 from time import sleep
 def ir_menu():
   sleep(1)
-  next = input("Para volver al menú principal presione una tecla.")
+  next = input("\nPara volver al menú principal presione una tecla.")
   clear()
 
 #Mostrar asientos disponibles
 #Según el requisito: Mostrará por pantalla todos los asientos disponibles con su número de asiento y los no disponibles los con una “X”
 def disp_asiento (mapa_avion):#agrego nombre más claro.
   print("*"*3,"Asientos del  avión","*"*3)
+  print()
   for i in range(9):
     for j in range(9):
       print(mapa_avion[i][j], end=" ")
@@ -46,7 +47,6 @@ def validar_telefono():
       if len(str(telefono)) == 9:
         for i in str(telefono):
           if "9" in i:
-            return telefono
             break
           else:
             cont += 1
@@ -59,6 +59,7 @@ def validar_telefono():
         print("\nError, su numero debe tener 9 digitos")
     except ValueError:
       print("\nError, ingrese su telefono como numeros")
+  return telefono
 
 #Funcion compra
 def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
@@ -75,6 +76,7 @@ def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
       descuento = normal * 0.15
       normal = normal - descuento
       print("* ","descuento 15%:\t$",round(descuento))
+    print()
     print("*"*40)
   elif compra_asiento >= 31 and compra_asiento <= 42:
     vip += 240000
@@ -86,6 +88,7 @@ def compra(compra_asiento,banco,avion,asiento,normal,vip,total):
       descuento = vip * 0.15
       vip = vip - descuento
       print("* ","descuento 15%:\t$",round(descuento))
+    print()
     print("*"*40)
   total = total + vip + normal
   print("            su total es:\t$", round(total))

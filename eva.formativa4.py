@@ -60,13 +60,12 @@ while menu:
         if compra_asiento > 0 and compra_asiento < 43 and check_avion == True:
           break
         elif check_avion == False:
-          print("El asiento ya ha sido comprado. Intente otro.")
+          print("\nEl asiento ya ha sido comprado. Intente otro.")
         else:
-          print("Error, Ingrese un numero entre el 1 y el 42")
+          print("\nError: Ingrese un numero entre el 1 y el 42")
       except ValueError:
-        print("Error, Ingrese numeros")
+        print("\nError: Ingrese el asiento como un numero")
     fun.compra(compra_asiento, banco_duoc, avion, asiento, normal, vip,total)
-    print()
     fun.ir_menu()
   elif op == 3:
     fun.clear()
@@ -98,7 +97,6 @@ while menu:
           break
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
-    print()
     fun.ir_menu()
   elif op == 4:
     fun.clear()   
@@ -133,7 +131,6 @@ while menu:
           break
     else:
       print("\nError, ingrese a la opcion 2 para registrarse...")
-    print()
     fun.ir_menu()
   elif op == 5:
     fun.clear() 
